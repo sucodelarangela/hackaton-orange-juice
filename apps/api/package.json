@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig-build.json",
-    "dev": "docker compose -f .docker/docker-compose.yml up -d && npx prisma generate && npx prisma migrate dev && nodemon",
+    "dev": "docker compose -f .docker/docker-compose.yml up -d && npx prisma generate --schema=./prisma/schema.prisma && npx prisma migrate dev && nodemon",
     "lint": "eslint",
     "test": "jest --passWithNoTests --no-cache --runInBand --silent --noStackTrace",
     "test:unit": "pnpm test -- --watch -c jest-unit-config.js",
